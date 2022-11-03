@@ -1,5 +1,5 @@
 <div class="formd-group">
-<%= form_with model: [@book, @book_comment], local: false do |f| %>
+<%= form_with model: [book, book_comment], local: false do |f| %>
   <%= f.text_area :comment, class: 'form-control book_comment',rows: '5' %><br>
   <%= f.submit "送信" %>
 <% end %>
