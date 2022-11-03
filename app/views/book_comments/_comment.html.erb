@@ -1,4 +1,5 @@
 <p>コメント蘭</p>
+<div class="comments_area">
 <table class="table table-borderless">
   <thead>
     <tr>
@@ -7,7 +8,7 @@
       <th style="width: 20%"></th>
     </tr>
   </thead>
-  <% book.book_comments.each do |book_comment| %>
+  <% book.book_comments.first(4).each do |book_comment| %>
   <tr>
     <td>
     <%= link_to(book_comment.user) do %>
@@ -24,9 +25,5 @@
   </tr>
   <% end %>
 </table>
-<div class="formd-group">
-<%= form_with model: [book, book_comment] do |f| %>
-  <%= f.text_area :comment, class: 'form-control book_comment',rows: '5' %><br>
-  <%= f.submit "送信" %>
-<% end %>
 </div>
+<%= render 'book_comments/comment_new', book: book, book_comment: book_comment %>
